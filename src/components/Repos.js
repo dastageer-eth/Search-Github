@@ -2,7 +2,7 @@ import React from "react";
 
 const Repos= () => {
     return <div>
-        <h1>Repos Component</h1>
+        <h2>Repos Component</h2>
     </div>
 }
 

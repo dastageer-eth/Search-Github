@@ -1,0 +1,42 @@
+ export default [
+  {
+  "login": "arshshaikh06",
+  "id": 47489983,
+  "node_id": "MDQ6VXNlcjQ3NDg5OTgz",
+  "avatar_url": "https://avatars.githubusercontent.com/u/47489983?v=4",
+  "gravatar_id": "",
+  "url": "https://api.github.com/users/arshshaikh06",
+  "html_url": "https://github.com/arshshaikh06",
+  "followers_url": "https://api.github.com/users/arshshaikh06/followers",
+  "following_url": "https://api.github.com/users/arshshaikh06/following{/other_user}",
+  "gists_url": "https://api.github.com/users/arshshaikh06/gists{/gist_id}",
+  "starred_url": "https://api.github.com/users/arshshaikh06/starred{/owner}{/repo}",
+  "subscriptions_url": "https://api.github.com/users/arshshaikh06/subscriptions",
+  "organizations_url": "https://api.github.com/users/arshshaikh06/orgs",
+  "repos_url": "https://api.github.com/users/arshshaikh06/repos",
+  "events_url": "https://api.github.com/users/arshshaikh06/events{/privacy}",
+  "received_events_url": "https://api.github.com/users/arshshaikh06/received_events",
+  "type": "User",
+  "site_admin": false
+  },
+  {
+  "login": "Skaz6799",
+  "id": 54706041,
+  "node_id": "MDQ6VXNlcjU0NzA2MDQx",
+  "avatar_url": "https://avatars.githubusercontent.com/u/54706041?v=4",
+  "gravatar_id": "",
+  "url": "https://api.github.com/users/Skaz6799",
+  "html_url": "https://github.com/Skaz6799",
+  "followers_url": "https://api.github.com/users/Skaz6799/followers",
+  "following_url": "https://api.github.com/users/Skaz6799/following{/other_user}",
+  "gists_url": "https://api.github.com/users/Skaz6799/gists{/gist_id}",
+  "starred_url": "https://api.github.com/users/Skaz6799/starred{/owner}{/repo}",
+  "subscriptions_url": "https://api.github.com/users/Skaz6799/subscriptions",
+  "organizations_url": "https://api.github.com/users/Skaz6799/orgs",
+  "repos_url": "https://api.github.com/users/Skaz6799/repos",
+  "events_url": "https://api.github.com/users/Skaz6799/events{/privacy}",
+  "received_events_url": "https://api.github.com/users/Skaz6799/received_events",
+  "type": "User",
+  "site_admin": false
+  }
+  ]
