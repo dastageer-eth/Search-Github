@@ -4,9 +4,10 @@ import { GithubContext } from "../context/context";
 
 const Info = () => {
   const data = useContext(GithubContext);
+  console.log(data);
   return (
     <div>
-      <h2>Info Component : {data}</h2>
+      <h2>Info Component</h2>
     </div>
   );
 };
