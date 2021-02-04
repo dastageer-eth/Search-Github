@@ -5,15 +5,13 @@ import { GithubContext } from "../context/context";
 
 const Search = () => {
   const [user, setUser] = useState("");
-  const { requests, error } = useContext(GithubContext);
+  const { requests, error, searchGithubUser ,isLoading } = useContext(GithubContext);
   //get things from global context
   const handleSubmit = (e) => {
     e.preventDefault();
     if (user) {
-      //logic
-    } else {
-      //Error Message
-    }
+      searchGithubUser(user)
+    } 
     console.log(user);
   };
   return (
@@ -33,7 +31,7 @@ const Search = () => {
               value={user}
               onChange={(e) => setUser(e.target.value)}
             />
-            {requests > 0 && <button type="submit">Submit</button>}
+            {requests > 0 &&  !isLoading && <button type="submit">Submit</button>}
           </div>
         </form>
         <h3>requests : {requests} / 60</h3>

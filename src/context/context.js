@@ -5,7 +5,6 @@ import mockFollowers from "./mockData.js/mockFollowers";
 import axios from "axios";
 
 const rate_limitUrl = "https://api.github.com/rate_limit";
-
 const GithubContext = React.createContext();
 
 const GithubProvider = ({ children }) => {
@@ -15,9 +14,32 @@ const GithubProvider = ({ children }) => {
 
   //request loading
   const [requests, setRequest] = useState(0);
-  const [loading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   //error
   const [error, setError] = useState({ show: false, msg: "" });
+
+  const searchGithubUser = async (user) => {
+    toggleError();
+    setIsLoading(true);
+    let userUrl = "https://api.github.com/users/" + user;
+    let reposUrl =
+      "https://api.github.com/users/" + user + "/repos?per_page=100";
+    let followersURL = "https://api.github.com/users/" + user + "/followers";
+    const response = await axios.get(userUrl).catch((err) => console.log(err));
+    console.log(response);
+    if (response) {
+      setGithubUser(response.data);
+      const {} = response.data;
+      axios.get(reposUrl).then((response) => setRepos(response.data));
+      axios.get(followersURL).then((response) => setFollowers(response.data));
+
+      //morelogic
+    } else {
+      toggleError(true, "There is no user with provided username");
+    }
+    checkRequest();
+    setIsLoading(false);
+  };
 
   //check rate
   const checkRequest = () => {
@@ -29,7 +51,10 @@ const GithubProvider = ({ children }) => {
         } = data;
         setRequest(remaining);
         if (remaining === 0) {
-          toggleError(true, "Sorry, You have exceeded your hourly search limit!");
+          toggleError(
+            true,
+            "Sorry, You have exceeded your hourly search limit!"
+          );
         }
       })
       .catch((err) => console.log(err));
@@ -42,7 +67,17 @@ const GithubProvider = ({ children }) => {
   useEffect(checkRequest, []);
 
   return (
-    <GithubContext.Provider value={{ githubUser, repos, followers, requests,error }}>
+    <GithubContext.Provider
+      value={{
+        githubUser,
+        repos,
+        followers,
+        requests,
+        error,
+        searchGithubUser,
+        isLoading,
+      }}
+    >
       {children}
     </GithubContext.Provider>
   );
