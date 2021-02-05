@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { GithubContext } from "../context/context";
-import { ExampleChart, Pie3D, Column3D, Bar3D, Doughnut2D } from "./Charts";
+import { Pie3D, Column3D, Bar3D, Doughnut2D } from "./Charts";
 
 const Repos = () => {
   const { repos } = useContext(GithubContext);
@@ -41,7 +41,7 @@ const Repos = () => {
     (total, item) => {
       const { stargazers_count, name, forks } = item;
       total.stars[stargazers_count] = { label: name, value: stargazers_count };
-      total.forks[forks] = {label:name, value: forks};
+      total.forks[forks] = { label: name, value: forks };
       return total;
     },
     {
@@ -53,21 +53,6 @@ const Repos = () => {
   stars = Object.values(stars).slice(-5).reverse();
   forks = Object.values(forks).slice(-5).reverse();
 
-  //Chart Data
-  const chartData = [
-    {
-      label: "JavaScript",
-      value: "80",
-    },
-    {
-      label: "HTML",
-      value: "60",
-    },
-    {
-      label: "CSS",
-      value: "35",
-    },
-  ];
   return (
     <section className="section">
       <Wrapper className="section-center">

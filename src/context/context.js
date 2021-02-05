@@ -30,10 +30,10 @@ const GithubProvider = ({ children }) => {
     if (response) {
       setGithubUser(response.data);
       const {} = response.data;
-      axios.get(reposUrl).then((response) => setRepos(response.data));
-      axios.get(followersURL).then((response) => setFollowers(response.data));
-
-      //morelogic
+      await Promise.allSettled([
+        axios.get(reposUrl).then((response) => setRepos(response.data)),
+        axios.get(followersURL).then((response) => setFollowers(response.data)),
+      ]).catch((err) => console.log(err));
     } else {
       toggleError(true, "There is no user with provided username");
     }

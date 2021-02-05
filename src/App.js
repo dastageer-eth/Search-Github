@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+
 import Dashboard from "./pages/Dashboard";
 import Error from "./pages/Error";
 import Login from "./pages/Login";
