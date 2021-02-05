@@ -1,15 +1,23 @@
-import React from "react"
-import styled from 'styled-components';
+import React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+import styled from "styled-components";
 
 const Login = () => {
-    return <Wrapper className="container">
-        <img className="center"
+  const { loginWithRedirect } = useAuth0();
+  return (
+    <Wrapper className="container">
+      <img
+        className="center"
         src="https://icons-for-free.com/iconfiles/png/512/svg+github+hub+logo+icon-1320190542448952806.png"
-        alt="github User"></img>
-        <h1>Github User</h1>
-        <button className= "btn" >Login</button>
+        alt="github User"
+      ></img>
+      <h1>Github User</h1>
+      <button className="btn" onClick={loginWithRedirect}>
+        Login / SignUp
+      </button>
     </Wrapper>
-}
+  );
+};
 
 const Wrapper = styled.section`
   min-height: 100vh;
@@ -28,4 +36,4 @@ const Wrapper = styled.section`
   }
 `;
 
-export default Login
+export default Login;
